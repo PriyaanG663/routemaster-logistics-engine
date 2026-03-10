@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build outputs
+client/dist/
+build/
+
+# Environment variables (Crucial for security!)
+.env
+.env.local
+
+# Docker logs and local data
+*.log
+mongo-data/
+
+# OS metadata
+.DS_Store
+Thumbs.db
