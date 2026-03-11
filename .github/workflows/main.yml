@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  # Job 1: Build and Test the Node.js environment
-  build-and-test:
+  # Job 1: Build and Verify the MERN Stack code
+  build-and-verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -19,15 +19,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Root Dependencies
-        run: npm install
-
-      - name: Lint & Build Frontend
+      # Build Frontend (Navigate directly to subfolder)
+      - name: Build Frontend
         working-directory: ./client
         run: |
           npm install
           npm run build
 
+      # Install Backend (Navigate directly to subfolder)
       - name: Install Backend Dependencies
         working-directory: ./server
         run: npm install
@@ -35,7 +34,7 @@ jobs:
   # Job 2: Verify Docker Orchestration
   docker-check:
     runs-on: ubuntu-latest
-    needs: build-and-test
+    needs: build-and-verify
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
