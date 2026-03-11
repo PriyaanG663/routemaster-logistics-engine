@@ -42,6 +42,13 @@ I implemented a Continuous Integration pipeline to automate quality control:
 * **Automated Origin Sync:** To reduce manual input errors, the backend logic automatically synchronizes the shipment's "Current Location" with the "Source City" upon registration.
 * **Status Management:** The system uses a state-machine approach to handle shipment statuses (e.g., *Pending, Out for Delivery, Delivered*), ensuring data consistency across the UI.
 
+### 5. Health and MONITORING
+![RouteMaster Dashboard](./display/image1.png)
+![RouteMaster Dashboard](./display/image2.png)
+- **Exporter**: The Node.js backend uses `prom-client` to expose real-time metrics at `/metrics`.
+- **Collector**: **Prometheus** (running in a Docker container) scrapes these metrics every 5 seconds.
+- **Visualizer**: **Grafana** connects to Prometheus as a data source to provide a real-time graphical dashboard.
+
 ## 🚦 Getting Started
 
 ### Prerequisites

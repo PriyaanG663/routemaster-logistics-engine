@@ -72,6 +72,14 @@ app.delete('/shipments/:id', async (req, res) => {
     res.status(500).json({ error: "Internal Server Error during deletion" });
   }
 });
+const client = require('prom-client');
 
+client.collectDefaultMetrics();
+
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  const metrics = await client.register.metrics();
+  res.send(metrics);
+});
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
