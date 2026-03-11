@@ -23,7 +23,7 @@ The system is built as a set of decoupled services:
 3. **Database:** MongoDB instance running on a private Docker network for enhanced security.
 
 ## 🧠 Technical Architecture & Logic
-
+![CI Status](https://github.com/PriyaanG663/routemaster-logistics-engine/actions/workflows/main.yml/badge.svg)
 ### 1. The Microservices Approach
 RouteMaster is designed as a set of decoupled services to mimic a production-scale logistics engine.
 * **Separation of Concerns:** By separating the `client` (React) and `server` (Node/Express), the frontend can be scaled independently of the backend logic.
